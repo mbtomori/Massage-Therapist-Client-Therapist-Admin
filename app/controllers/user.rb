@@ -1,37 +1,22 @@
-post '/users' do
-  @new_user = User.create(email: params[:email],
+post '/patient' do
+  @patient = Patient.new(email: params[:email],
               password: params[:password],
               first_name: params[:first_name],
+              phone: params[:phone],
               last_name: params[:last_name])
-
-  @user = User.new
-
-  if @new_user.valid?
-    self.current_user = @new_user
-    redirect to('/')
+  if @patient
+    @patient.password = params[:password]
+    @patient.save
+    self.current_user = @patient
+    redirect '/user/profile' #-- displays patient profile with appointment, medical information, book etc.
   else
-    erb :login
+    @patient
+    erb :signup
   end
 end
 
-before '/users/:id/*' do
-  @user = User.find_by_id(params[:id])
-  redirect to('/') if @user.nil?
-end
 
-get '/users/:id/profile' do
-  @user = User.find_by_id(params[:id])
-  erb :profile
-end
 
-get '/users/:id/posts' do
-  @user = User.find_by_id(params[:id])
-  @posts = @user.posts
-  erb :index
-end
-
-get '/users/:id/comments' do
-  @user = User.find_by_id(params[:id])
-  @comments = @user.comments
-  erb :comments
+get '/user/profile' do
+  erb :user_profile
 end

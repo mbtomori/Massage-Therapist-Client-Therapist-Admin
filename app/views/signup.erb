@@ -1,0 +1,31 @@
+<!-- Sign-up -->
+<h2>Sign Up</h2>
+<h3>Patient: </h3>
+<form action="/users" method="post">
+  <input type="text" name="first_name" placeholder="Bob" >
+  <input type="text" name="last_name" placeholder="Dole" >
+  <input type="text" name="email" placeholder="me@example.com" >
+  <input type="text" name="phone" placeholder="xxx-xxx-xxxx" >
+  <input type="password" name="password" placeholder="password">
+  <button type="submit" class="btn btn-primary">Create Patient</button>
+</form>
+<h3>Therapist: </h3>
+<form action="/therapist" method="post">
+  <input type="text" name="first_name" placeholder="Bob" >
+  <input type="text" name="last_name" placeholder="Dole" >
+  <input type="text" name="email" placeholder="me@example.com" >
+  <input type="text" name="phone" placeholder="xxx-xxx-xxxx" >
+  <input type="password" name="secret_password" placeholder='secret password'>
+  <input type="password" name="password" placeholder="password">
+  <button type="submit" class="btn btn-primary">Create Therapist</button>
+</form>
+<h3>Admin: (Don't create me yet)</h3>
+<form action="/admin" method="post">
+  <input type="text" name="first_name" placeholder="Bob" >
+  <input type="text" name="last_name" placeholder="Dole" >
+  <input type="text" name="email" placeholder="me@example.com" >
+  <input type="text" name="phone" placeholder="xxx-xxx-xxxx" >
+  <input type="password" name="secret_password" placeholder='secret password'>
+  <input type="password" name="password" placeholder="password">
+  <button type="submit" class="btn btn-primary">Create Admin</button>
+</form>

@@ -1,2 +1,11 @@
-
-<h1>Placeholder</h1>
+<h2>Login: </h2>
+<form action="/login" method="post">
+  <input type="text" name="email" placeholder="me@example.com" >
+  <input type="password" name="password" placeholder="password">
+  <select id= "type" name="type">
+    <option value="Patient">Patient</option>
+    <option value="Therapist">Therapist</option>
+    <option value="Admin">Admin</option>
+  </select>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
