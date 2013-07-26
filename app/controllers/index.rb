@@ -2,6 +2,7 @@ get '/' do
   erb :index
 end
 
+
 post '/login' do
   if params[:type] == 'Patient'
     self.current_user = Patient.find_by_email(params[:email])
