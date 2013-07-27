@@ -1,0 +1,10 @@
+<div class='container'>
+  <!-- where(therapist_id: session[:user_id]) -->
+  <h1>Your Appointments</h1>
+  <% Appointment.all.each do |apt|%>
+    <% cur_patient = Patient.find(apt.patient_id)%>
+    <p><%= cur_patient.first_name %>
+       <%= apt.appt_at %>
+    </p>
+  <% end %>
+</div>

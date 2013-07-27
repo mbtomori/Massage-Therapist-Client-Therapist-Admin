@@ -29,7 +29,7 @@ end
 end
 
 20.times do |num|
-	appointment = Appointment.new(
+	appointment = Appointment.create(
 		appt_at: ApptTime.rand_time(2.days.ago),
 		patient: Patient.all.sample,
 		therapist: Therapist.all.sample
