@@ -1,14 +1,12 @@
-<!-- Sign-up -->
 <h1>Sign up for Shiatsu</h1>
   <h2>Dev Bootcamp's Premium Massage Appointment System</h2>
-  <h3>Compete your profile below</h3>
-  <h3>Patient: </h3>
-  <form action='/patient' method="post">
+  <form action='/users/signup' method="post">
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Password">
+    <h3>Compete your profile below</h3>
     <input type="text" name="first_name" placeholder="First Name">
     <input type="text" name="last_name" placeholder="Last Name">
     <input type="text" name="phone" pattern="[^(\([\d]{3}\)|\([\d]{3}\) |[\d]{3}.|[\d]{3}.)[\d]{3}.[\d]{4}|[\d]{10}$]" placeholder="(xxx) xxx-xxxx">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
   </br>
     <select ="pressure_preference" onchange="selectPreference()" id="pressureList">
       <option value="null">What pressure do you like?</option>
@@ -18,9 +16,19 @@
       <option value="4">Medium-deep Pressure</options>
       <option value="5">Deep Pressure</options>
     </select>
-    <button type="submit" class="btn btn-primary">Create Patient</button>
-  </form>     
-<h3>Therapist: </h3>
+  <p>
+    <span id="add_condition">OPTIONAL: Add any past injuries or health conditions you want your massage therapist to know below.</span>
+    <br />
+    <input class="add" type="button" value="Add Conditions"></input>
+    <div class="hidden_add_button">
+      <%= erb :_add_condition%>
+    </div>
+  </p>
+      <br />
+
+    <button type="submit" class="btn btn-primary">Sign up</button>
+  </form>
+  <h3>Therapist: </h3>
 <form action="/therapist" method="post">
   <input type="text" name="first_name" placeholder="Bob" >
   <input type="text" name="last_name" placeholder="Dole" >
