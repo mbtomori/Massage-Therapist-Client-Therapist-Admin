@@ -18,11 +18,21 @@
     </select>
   <p>
     <span id="add_condition">Please enter a past injury or medical condition:</span>
+    <div class="add_health_condition">
+      <p>
+        <label for="health">Health Condition: </label>
+        <input type="text" name="health" id="health">
+        <input id="add" type="button" value="+"></input>
+        <input id="remove" type="button" value="-"></input>
+      </p>
+    </div>
+    <div class="hidden_add_button">
+    <%= erb :_add_condition%>
+  </div>
   </p>
       <br />
 
     
     <input type="submit" value="Signup!">
   </form>
-      
 
