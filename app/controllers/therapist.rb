@@ -15,7 +15,7 @@ post '/therapist' do
 end
 
 get '/therapist/appointments' do
-  params.inspect
+  erb :therapist_profile
   # @appointments = Appointment.where(therapist_id: )
 
 end
