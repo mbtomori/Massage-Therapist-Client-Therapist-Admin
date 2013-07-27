@@ -25,3 +25,6 @@ gem 'shotgun'
   gem 'faker'
   gem 'rspec'
 # end
+
+# Google Calendar
+gem 'google-api-client'
