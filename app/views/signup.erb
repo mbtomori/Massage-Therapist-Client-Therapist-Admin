@@ -24,19 +24,19 @@
 <form action="/therapist" method="post">
   <input type="text" name="first_name" placeholder="Bob" >
   <input type="text" name="last_name" placeholder="Dole" >
-  <input type="text" name="email" placeholder="me@example.com" >
-  <input type="text" name="phone" placeholder="xxx-xxx-xxxx" >
+  <input type="text" name="phone" pattern="[^(\([\d]{3}\)|\([\d]{3}\) |[\d]{3}.|[\d]{3}.)[\d]{3}.[\d]{4}|[\d]{10}$]" placeholder="(xxx) xxx-xxxx">
+  <input type="email" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
   <input type="password" name="secret_password" placeholder='secret password'>
-  <input type="password" name="password" placeholder="password">
   <button type="submit" class="btn btn-primary">Create Therapist</button>
 </form>
 <h3>Admin: (Don't create me yet)</h3>
 <form action="/admin" method="post">
   <input type="text" name="first_name" placeholder="Bob" >
   <input type="text" name="last_name" placeholder="Dole" >
-  <input type="text" name="email" placeholder="me@example.com" >
-  <input type="text" name="phone" placeholder="xxx-xxx-xxxx" >
+  <input type="text" name="phone" pattern="[^(\([\d]{3}\)|\([\d]{3}\) |[\d]{3}.|[\d]{3}.)[\d]{3}.[\d]{4}|[\d]{10}$]" placeholder="(xxx) xxx-xxxx">
+  <input type="email" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
   <input type="password" name="secret_password" placeholder='secret password'>
-  <input type="password" name="password" placeholder="password">
   <button type="submit" class="btn btn-primary">Create Admin</button>
 </form>
