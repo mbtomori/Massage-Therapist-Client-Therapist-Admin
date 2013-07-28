@@ -19,3 +19,11 @@ get '/therapist/appointments' do
   # @appointments = Appointment.where(therapist_id: )
 
 end
+
+get '/therapist/test' do
+  erb :therapist_create_appointments
+end
+
+post '/therapist/test' do
+  erb :therapist_create_appointments
+end
