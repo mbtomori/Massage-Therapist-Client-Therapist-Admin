@@ -11,7 +11,7 @@ helpers do
   end
 
   def therapist?
-    session[:type] == 'Therapist'
+    session[:type] == 'Therapist' 
   end
 
   def patient?

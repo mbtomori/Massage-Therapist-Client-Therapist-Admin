@@ -1,6 +1,6 @@
 <section>
-  <% appointments = %>
-  <% Appointment.all.each do |appt| %>
+  <% appointments = therapist? ? Appointment.where(therapist_id: current_user.id) : Appointment.all%>
+  <% appointments.each do |appt| %>
     <% today = Date.today %>
     <% appt_date = appt.appt_at %>
     <% if appt_date.year == today.year && appt_date.month == today.month && appt_date.day == today.day %>
