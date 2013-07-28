@@ -1,9 +1,11 @@
 <div class='container'>
   <h1>Your Appointments</h1>
-  <% Appointment.where(therapist_id: current_user.id)all.each do |apt|%>
+  <% Appointment.where(therapist_id: current_user.id).all.each do |apt|%>
     <% cur_patient = Patient.find(apt.patient_id)%>
     <p><%= cur_patient.first_name %>
        <%= apt.appt_at %>
     </p>
   <% end %>
+  Today's Appointments
+  <% erb :_todays_appts %>
 </div>

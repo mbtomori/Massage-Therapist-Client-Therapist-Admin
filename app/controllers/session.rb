@@ -13,9 +13,9 @@ post '/users/login' do
       elsif params[:type] == "Therapist"
         self.current_user = Therapist.find_by_email(params[:email])
         redirect '/users/therapists/profile'
-      # elsif params[:user_type] == "Admin"
-        # self.current_user = Admin.find_by_email(params[:email])
-        #redirect '/users/profile'
+      elsif params[:user_type] == "Admin"
+        self.current_user = Admin.find_by_email(params[:email])
+        redirect '/users/profile'
       end 
     else
       @message = "Invalid password"
