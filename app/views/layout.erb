@@ -28,9 +28,13 @@
 <body>
   <div class="navbar">
     <div class="navbar-inner">
-      <a class="brand" href="/">My Sweet Site</a>
+      <a class="brand" href="/">Calf Massage</a>
+      <img src="calf.jpg" width="50" height="50"/>
       <ul class="nav pull-right">
         <% if current_user %>
+          <li>
+              <a href="/profile">My profile</a>
+          </li>
           <li>
             <a href="/users/logout">Log Out</a>
           </li>

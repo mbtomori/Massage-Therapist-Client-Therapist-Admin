@@ -26,5 +26,16 @@ post '/users/patients/new' do
 end
 
 get '/users/patients/profile' do
-  erb :user_profile
+  @patient = Patient.find_by_id(session[:user_id])
+  erb :patient_profile
+end
+
+post '/users/patients/profile' do
+    @patient = Patient.find_by_id(session[:user_id])
+    conditions = params[:conditions].reject!(&:empty?)
+    conditions.each do |condition|
+      Condition.create(patient_id: @patient.id, description: condition)
+    end
+    self.current_user = @patient
+    redirect '/users/patients/profile'
 end
