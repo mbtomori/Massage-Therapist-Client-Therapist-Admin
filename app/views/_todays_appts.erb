@@ -1,3 +1,12 @@
 <section>
-  <% Date.today %> 
+  <% Appointment.all.each do |appt| %>
+    <% today = Date.today %>
+    <% appt_date = appt.appt_at %>
+    <% if appt_date.year == today.year && appt_date.month == today.month && appt_date.day == today.day %>
+      <% patient = appt.patient_id ? Patient.find(appt.patient_id).first_name : 'UNBOOKED' %>
+      <input type='submit' class='book-butt' 
+      value=<%=appt_date.strftime("%I:%M%p")+patient%>>
+      <br>
+    <% end %>
+  <% end %> 
 </section>

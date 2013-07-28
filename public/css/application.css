@@ -1,5 +1,3 @@
-
-
 th {
   text-align: left;
 }
@@ -9,4 +7,10 @@ th {
 	margin:auto;
 	margin-bottom: 1em;
 	width:30%;
+}
+
+.book-butt {
+  color: blue;
+  width: 200px !important;
+  text-align: left;
 }
