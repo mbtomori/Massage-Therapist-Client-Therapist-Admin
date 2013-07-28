@@ -8,4 +8,7 @@ $(document).ready(function() {
       $(this).closest('#add_one_health_condition').remove();
       });
   });
+
 });
+
+
