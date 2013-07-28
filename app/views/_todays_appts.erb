@@ -4,9 +4,20 @@
     <% today = Date.today %>
     <% appt_date = appt.appt_at %>
     <% if appt_date.year == today.year && appt_date.month == today.month && appt_date.day == today.day %>
-      <% patient = appt.patient_id ? Patient.find(appt.patient_id).first_name : 'UNBOOKED' %>
-      <input type='submit' class='book-butt' 
-      value=<%=appt_date.strftime("%I:%M%p")+patient%>>
+      <% patient = appt.patient_id ? Patient.find(appt.patient_id).first_name : '---------' %>
+      <span><%= patient+' '+appt_date.strftime("%I:%M%p") %> </span>
+      <% if patient? %>
+        <form class='span_butt' action='#' method='post'>
+          <input type='hidden' name='appointment_id' value=<%= appt.id.to_s %> />
+          <input type='hidden' name='patient_id' value=<%= current_user.id %>/> 
+          <input type='submit' value='Book It'>
+        </form>
+      <% else %>
+        <form class='span_butt' action='#' method='post'>
+          <input type='hidden' name='appointment_id' value=<%= appt.id.to_s %> />
+          <input type='submit' value=' - '>
+        </form>
+      <% end %>
       <br>
     <% end %>
   <% end %> 
