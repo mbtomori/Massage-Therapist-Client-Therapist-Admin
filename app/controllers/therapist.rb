@@ -10,7 +10,7 @@ post '/users/therapists/new' do
     self.current_user = therapist
     redirect '/users/therapists/profile'
   else
-    erb :signup #Print out errors
+    erb :sign_up #Print out errors
   end
 end
 

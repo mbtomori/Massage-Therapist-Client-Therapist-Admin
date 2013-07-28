@@ -8,11 +8,5 @@ not_found do
 end
 
 get '/profile' do
-  if session[:type] == "Patient"
-    redirect '/users/patients/profile'
-  elsif session[:type] == "Therapist"
-    redirect '/users/therapists/profile'
-  elsif session[:type] == "Admin"
-    redirect '/users/admin/profile'
-  end
+  redirect "/users/#{session[:type].downcase}s/profile"
 end

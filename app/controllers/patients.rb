@@ -21,7 +21,7 @@ post '/users/patients/new' do
     redirect '/users/patients/profile' #-- displays patient profile with appointment, medical information, book etc.
   else
     @patient
-    erb :signup
+    erb :sign_up
   end
 end
 
