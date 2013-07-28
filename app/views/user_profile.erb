@@ -3,5 +3,12 @@
   <%= session[:type].inspect %>
   <%= session[:user_id].inspect %>
   <br>
+  <% if therapist? %>
+    <%= erb :_therapist_profile %>
+  <% elsif admin? %>
+    <%= erb :_admin_profile %>
+  <% else %>
+    <%= erb :_patient_profile %>
+  <% end %>
   <img src="http://1.media.dorkly.cvcdn.com/57/82/014c67406a541837b841a9b7ac6cfed9-corgi-link-cosplay.jpg" />
 </div>
