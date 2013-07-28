@@ -18,6 +18,6 @@ get '/users/therapists/profile' do
   erb :therapist_profile
 end
 
-delete '/users/therapists/profile/:appt_id' do
-  Appointment.find(params[:appt_id]).destroy
-end
+# delete '/users/therapists/profile/:appt_id' do
+#   Appointment.find(params[:appt_id]).destroy
+# end
