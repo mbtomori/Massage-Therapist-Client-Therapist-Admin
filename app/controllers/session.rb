@@ -1,19 +1,22 @@
-get '/sessions/new' do
+get '/users/new' do
   # Display sign-up/sign-in page
-  if session[:id]
-    redirect 'user/profile'
-  else
-    erb :signup
-  end
+  erb :signup
 end
 
-post '/sessions' do
-  @user = User.find_by_email(params[:email])
-
+post '/users/login' do
+@user = User.find_by_email(params[:email])
   if @user
     if @user.password == params[:password]
-      self.current_user = @user
-      redirect to('/')
+      if params[:type] == 'Patient'
+        self.current_user = Patient.find_by_email(params[:email])
+        redirect '/users/patients/profile'
+      elsif params[:type] == "Therapist"
+        self.current_user = Therapist.find_by_email(params[:email])
+        redirect '/users/therapists/profile'
+      # elsif params[:user_type] == "Admin"
+        # self.current_user = Admin.find_by_email(params[:email])
+        #redirect '/users/profile'
+      end 
     else
       @message = "Invalid password"
       erb :signup
@@ -24,7 +27,7 @@ post '/sessions' do
   end
 end
 
-get '/sessions/logout' do
+get '/users/logout' do
   logout
   redirect '/'
 end
