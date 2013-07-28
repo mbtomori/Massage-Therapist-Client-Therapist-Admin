@@ -1,5 +1,6 @@
 <div class="container">
   <h2>Welcome <%= @patient.first_name%>!</h2>
+    <img src="http://1.media.dorkly.cvcdn.com/57/82/014c67406a541837b841a9b7ac6cfed9-corgi-link-cosplay.jpg" width="200" height="200"/>
   <br>
   <h3>Personal Information:</h3>
   <p><li>First Name: <%= @patient.first_name%></li>
@@ -7,7 +8,7 @@
   <li>Phone Number: <%= @patient.phone%></li>
   <li>Email Address: <a href="<%= @patient.email%>"><%= @patient.email%></a></li>
   <li>Pressure Preference: 
-    <% if @patient.pressure_preference == 5 %>
+    <% if @patient.pressure_preference == 5%>
     <%=  "Deep Pressure" %>
     <%elsif @patient.pressure_preference == 4%>
     <%= "Medium-deep Pressure"%>
@@ -20,6 +21,9 @@
     <%end%>
     </li>
   </p>
+  <h3>Upcoming Massages:</h3>
+    <p></p>
+  <h3>Massage History:</h3>
   <h3>Conditions:</h3>
   <% @patient.conditions.each do |condition| %>
     <li><%= condition.description %></li>
@@ -34,6 +38,4 @@
     <button type="submit" class="btn btn-primary">Add!</button>
   </form>
   <br />
-
-  <img src="http://1.media.dorkly.cvcdn.com/57/82/014c67406a541837b841a9b7ac6cfed9-corgi-link-cosplay.jpg" width="200" height="200"/>
 </div>
