@@ -1,9 +1,9 @@
 <h1>Sign up for Shiatsu</h1>
   <h2>Dev Bootcamp's Premium Massage Appointment System</h2>
-  <form action='/users/signup' method="post">
+  <h3>Compete your profile below</h3>
+  <form action='/users/patients/new' method="post">
     <input type="email" name="email" placeholder="Email">
     <input type="password" name="password" placeholder="Password">
-    <h3>Compete your profile below</h3>
     <input type="text" name="first_name" placeholder="First Name">
     <input type="text" name="last_name" placeholder="Last Name">
     <input type="text" name="phone" pattern="[^(\([\d]{3}\)|\([\d]{3}\) |[\d]{3}.|[\d]{3}.)[\d]{3}.[\d]{4}|[\d]{10}$]" placeholder="(xxx) xxx-xxxx">
@@ -29,7 +29,7 @@
     <button type="submit" class="btn btn-primary">Sign up</button>
   </form>
   <h3>Therapist: </h3>
-<form action="/therapist" method="post">
+<form action="/users/therapists/new" method="post">
   <input type="text" name="first_name" placeholder="Bob" >
   <input type="text" name="last_name" placeholder="Dole" >
   <input type="text" name="phone" pattern="[^(\([\d]{3}\)|\([\d]{3}\) |[\d]{3}.|[\d]{3}.)[\d]{3}.[\d]{4}|[\d]{10}$]" placeholder="(xxx) xxx-xxxx">
@@ -39,7 +39,7 @@
   <button type="submit" class="btn btn-primary">Create Therapist</button>
 </form>
 <h3>Admin: (Don't create me yet)</h3>
-<form action="/admin" method="post">
+<form action="/users/admins/new" method="post">
   <input type="text" name="first_name" placeholder="Bob" >
   <input type="text" name="last_name" placeholder="Dole" >
   <input type="text" name="phone" pattern="[^(\([\d]{3}\)|\([\d]{3}\) |[\d]{3}.|[\d]{3}.)[\d]{3}.[\d]{4}|[\d]{10}$]" placeholder="(xxx) xxx-xxxx">
