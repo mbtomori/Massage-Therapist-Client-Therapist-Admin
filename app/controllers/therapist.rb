@@ -1,4 +1,4 @@
-post '/therapist' do 
+post 'users/therapists/new' do 
   if (params[:secret_password] == 'happyending')
     therapist = Therapist.create(email:         params[:email],
                             password_hash: params[:password_hash],
@@ -8,13 +8,13 @@ post '/therapist' do
     therapist.password = params[:password_hash]
     therapist.save
     self.current_user = therapist
-    redirect '/therapist/appointments'
+    redirect '/users/therapists/appointments'
   else
     erb :signup #Print out errors
   end
 end
 
-get '/therapist/appointments' do
+get '/users/therapists/profile' do
   erb :therapist_profile
   # @appointments = Appointment.where(therapist_id: )
 
