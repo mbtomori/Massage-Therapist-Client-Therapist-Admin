@@ -10,6 +10,18 @@ helpers do
     session[:type] = user.type
   end
 
+  def therapist?
+    session[:type] == 'Therapist'
+  end
+
+  def patient?
+    session[:type] == 'Patient'
+  end
+
+  def admin?
+    session[:type] == 'Admin'
+  end
+
   def logged_in?
     !current_user.nil?
   end
