@@ -1,12 +1,16 @@
-<h2>Login: </h2>
-<form action="/users/login" method="post">
-  <input type="text" name="email" placeholder="me@example.com" >
-  <input type="password" name="password" placeholder="password">
-  <select id= "type" name="type">
-    <option value="Patient">Patient</option>
-    <option value="Therapist">Therapist</option>
-    <option value="Admin">Admin</option>
-  </select>
-  <button type="submit" class="btn btn-primary">Login</button>
-</form>
-<img src="http://www.massagebysabrina.com/Images/chair_massage_edit.jpg" />
+<section>
+  <% unless logged_in? %>
+    <h2>Login: </h2>
+    <form action="/users/login" method="post">
+      <input type="text" name="email" placeholder="me@example.com" >
+      <input type="password" name="password" placeholder="password">
+      <select id= "type" name="type">
+        <option value="Patient">Patient</option>
+        <option value="Therapist">Therapist</option>
+        <option value="Admin">Admin</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  <% end %>
+  <img src="http://www.massagebysabrina.com/Images/chair_massage_edit.jpg" />
+</section>

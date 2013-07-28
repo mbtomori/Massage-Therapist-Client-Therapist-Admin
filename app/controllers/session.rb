@@ -1,6 +1,6 @@
 get '/users/new' do
   # Display sign-up/sign-in page
-  erb :signup
+  erb :sign_up
 end
 
 post '/users/login' do
@@ -19,11 +19,11 @@ post '/users/login' do
       end 
     else
       @message = "Invalid password"
-      erb :signup
+      erb :sign_up
     end
   else
     @message = "User not found"
-    erb :signup
+    erb :sign_up
   end
 end
 

@@ -13,8 +13,7 @@
           <input type='submit' value='Book It'>
         </form>
       <% else %>
-        <form class='span_butt' action='#' method='post'>
-          <input type='hidden' name='appointment_id' value=<%= appt.id.to_s %> />
+        <form class='span_butt' action=<%= "/users/therapists/profile/#{appt.id}" %> method='delete'>
           <input type='submit' value=' - '>
         </form>
       <% end %>
