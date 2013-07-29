@@ -25,9 +25,12 @@ get '/therapist/test' do
 end
 
 post '/therapist/test' do
-  puts ">---- PARAMS ----------------------------------------------------->"
-  puts params
-  puts "<---- PARAMS -----------------------------------------------------<"
-
-  erb :therapist_create_appointments
+  if params  
+    params["apt"]["starttime"].each do |apt_time|
+      puts "TIME == #{apt_time.last}"
+      Appointment.create(appt_at: apt_time.last)
+    end
+  end
+  puts "DONE"
+  redirect '/'
 end
