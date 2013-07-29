@@ -1,21 +1,34 @@
+<script>
+$("form").submit(function(postEvent) {
+    postEvent.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: "/therapist/test",
+      data: $(this).serialize()
+      }).done(function(responseData) {
+        parseDate();
+      });
+  });
+</script>
 <div class='container'>
   <!-- where(therapist_id: session[:user_id]) -->
   <h1>Day Placeholder</h1>
-
-  <ul class="apt-add-ul">
-    <li><input id="start-time" class="create-apt-time" type="text" name="start time" placeholder="Start Time (HH:MM AM/PM)" /></li>
-    <li>Create <input id="amount" class="num-entry" type="text" name="amount" placeholder="#" minlength="1" maxlength="2" />&nbsp;
-    <input id="activity-name" type="text" name="activity" placeholder="Items" style="width: 100px;" />&nbsp;which last for&nbsp;
-    <input id="duration" class="num-entry" type="text" name="duration" placeholder="#" minlength="1" maxlength="2" />&nbsp;minutes and have&nbsp;
-    <input id="gap" class="num-entry" type="text" name="gap" placeholder="#" minlength="1" maxlength="2" />&nbsp;minutes in between each activity.</li>
-    <li>
-      <button id="add-apts" class="add-button">+</button>
-      <span class="clear-save-buttons">
-        <button  id="clear">Clear</button>&nbsp;<form action="/therapist/test" method="post" class="add-apt-form"><button id="save">Save</button></form>
-      </span>
-    </li>
-    <li>&nbsp;</li>
-    <li><div id="appointment-slot-list" class="apt-list-div">
-    </div></li>
-  </ul>
+  <form action="/therapist/test" method="post">
+    <ul class="apt-add-ul">
+      <li><input id="start-time" class="create-apt-time" type="text" placeholder="Start Time (HH:MM AM/PM)" /></li>
+      <li>Create <input id="amount" class="num-entry" type="text" placeholder="#" minlength="1" maxlength="2" />&nbsp;
+      <input id="activity-name" type="text" placeholder="Items" style="width: 100px;" />&nbsp;which last for&nbsp;
+      <input id="duration" class="num-entry" type="text" placeholder="#" minlength="1" maxlength="2" />&nbsp;minutes and have&nbsp;
+      <input id="gap" class="num-entry" type="text" placeholder="#" minlength="1" maxlength="2" />&nbsp;minutes in between each activity.</li>
+      <li>
+        <button id="add-apts" class="add-button" type="button" onclick="return: false;">+</button>
+        <span class="clear-save-buttons">
+          <button id="clear" type="button" onclick="return: false;">Clear</button>&nbsp;<button id="save" type="submit">Save</button>
+        </span>
+      </li>
+      <li>&nbsp;</li>
+      <li><div id="appointment-slot-list" class="apt-list-div">
+      </div></li>
+    </ul>
+  </form>
 </div>

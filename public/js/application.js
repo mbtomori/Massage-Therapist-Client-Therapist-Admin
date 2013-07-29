@@ -17,7 +17,7 @@ $(document).ready(function() {
     var gap = parseInt($('#gap').val(), 10);
     for (var i = 0; i < $('#amount').val(); i++) {
       if (startTime > 0 && (startTime + duration) < 1440) {
-        $('#appointment-slot-list').append('<p>' + activityName + ' starting at ' + formatTimeOutput(startTime) + ' and ending at ' + formatTimeOutput(startTime + duration) + ' <button id="remove-apt">Remove</button><p>');
+        $('#appointment-slot-list').append('<p class="new-apt">' + activityName + ' starting at ' + formatTimeOutput(startTime) + ' and ending at ' + formatTimeOutput(startTime + duration) + ' <button id="remove-apt">Remove</button></p>');
         startTime = (startTime + (duration + gap));
       }
     }
@@ -26,6 +26,10 @@ $(document).ready(function() {
 
   $('#clear').on('click', function() {
     $('#appointment-slot-list').empty();
+  });
+
+  $('#save').on('click', function() {
+    parseDates();
   });
 
   var aptSlotList = document.getElementById("appointment-slot-list");
@@ -98,4 +102,27 @@ function formatTimeOutput(timeInMinutes)
   console.log("formatTimeOutput :: OUTPUT: " + formattedTime);
   console.log(" ");
   return formattedTime;
+}
+
+function parseDates()
+{
+  var array_counter = 0;
+  $('.new-apt').each(function() {
+    var activity_start = 0;
+    var activity_end = ($(this).text().search("starting") - 1);
+    var activity = $(this).text().substring(activity_start, activity_end);
+
+    var startTime_start = (activity_end + 13);
+    var startTime_end = (startTime_start + 8);
+    var startTime = $(this).text().substring(startTime_start, startTime_end);
+
+    var endTime_start = (startTime_end + 15);
+    var endTime_end = (endTime_start + 8);
+    var endTime = $(this).text().substring(endTime_start, endTime_end);
+
+    $('#appointment-slot-list').append('<input type="hidden" name="apt[activity][' + array_counter + ']" value="' + activity + '" />');
+    $('#appointment-slot-list').append('<input type="hidden" name="apt[starttime][' + array_counter + ']" value="' + startTime + '" />');
+    $('#appointment-slot-list').append('<input type="hidden" name="apt[endtime][' + array_counter + ']" value="' + endTime + '" />');
+    array_counter++;
+  });
 }

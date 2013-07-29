@@ -25,5 +25,9 @@ get '/therapist/test' do
 end
 
 post '/therapist/test' do
+  puts ">---- PARAMS ----------------------------------------------------->"
+  puts params
+  puts "<---- PARAMS -----------------------------------------------------<"
+
   erb :therapist_create_appointments
 end
