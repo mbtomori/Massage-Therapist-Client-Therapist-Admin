@@ -1,39 +1,13 @@
 <div class="container">
-  <h2>Welcome <%= @patient.first_name%>!</h2>
+  <h2>Welcome <%= current_user.first_name%>!</h2>
+  <img src="http://1.media.dorkly.cvcdn.com/57/82/014c67406a541837b841a9b7ac6cfed9-corgi-link-cosplay.jpg" width="200" height="200"/>
   <br>
   <h3>Personal Information:</h3>
-  <p><li>First Name: <%= @patient.first_name%></li>
-  <li>Last Name: <%= @patient.last_name%>
-  <li>Phone Number: <%= @patient.phone%></li>
-  <li>Email Address: <a href="<%= @patient.email%>"><%= @patient.email%></a></li>
-  <li>Pressure Preference: 
-    <% if @patient.pressure_preference == 5 %>
-    <%=  "Deep Pressure" %>
-    <%elsif @patient.pressure_preference == 4%>
-    <%= "Medium-deep Pressure"%>
-    <%elsif @patient.pressure_preference == 3%>
-    <%= "Medium Pressure"%>
-    <%elsif @patient.pressure_preference == 2%>
-    <%= "Medium-light Pressure"%>
-    <%elsif @patient.pressure_preference == 1%>
-    <%= "Light Pressure"%>
-    <%end%>
-    </li>
-  </p>
-  <h3>Conditions:</h3>
-  <% @patient.conditions.each do |condition| %>
-    <li><%= condition.description %></li>
-  <% end %>
-  <form action='/users/patients/profile' method="post">
-   <span id="add_condition">If you would like to add additional conditions, please do so below:</span>
-    <br />
-    <input class="add" type="button" value="Add Conditions"></input>
-    <div class="hidden_add_button">
-      <%= erb :_add_condition%>
-    </div>
-    <button type="submit" class="btn btn-primary">Add!</button>
-  </form>
-  <br />
-
-  <img src="http://1.media.dorkly.cvcdn.com/57/82/014c67406a541837b841a9b7ac6cfed9-corgi-link-cosplay.jpg" width="200" height="200"/>
+  <p><li>First Name: <%= current_user.first_name%></li>
+  <li>Last Name: <%= current_user.last_name%>
+  <li>Phone Number: <%= current_user.phone%></li>
+  <li>Email Address: <a href="<%= current_user.email%>"><%= current_user.email%></a></li>
+  <%= erb :_choose_pressure %>
+  <%= erb :_todays_appts %>
+  <%= erb :_past_appts %>
 </div>

@@ -28,14 +28,19 @@ end
 	p "user #{num}: #{user}"
 end
 
+def time_rand from = Date.tomorrow, to = (Date.tomorrow + 2.days)
+  Time.at(from + rand * (to - from))
+end
+
 20.times do |num|
 	appointment = Appointment.create(
-		appt_at: ApptTime.rand_time(2.days.ago),
+		appt_at: Date.tomorrow,
 		patient: [Patient.all.sample,nil].sample,
 		therapist: Therapist.all.sample
 		)
 	p "appointment #{num}: #{appointment}"
 end
+
 
 # class ApptTime
 # 	def self.rand_time(from, to=Time.now)

@@ -1,0 +1,29 @@
+<section>
+  Pressure Preference: 
+  <% if current_user.pressure_preference == 5 %>
+  <%=  "Deep Pressure" %>
+  <%elsif current_user.pressure_preference == 4%>
+  <%= "Medium-deep Pressure"%>
+  <%elsif current_user.pressure_preference == 3%>
+  <%= "Medium Pressure"%>
+  <%elsif current_user.pressure_preference == 2%>
+  <%= "Medium-light Pressure"%>
+  <%elsif current_user.pressure_preference == 1%>
+  <%= "Light Pressure"%>
+  <%end%>
+  </p>
+  <h3>Conditions:</h3>
+  <% current_user.conditions.each do |condition| %>
+    <li><%= condition.description %></li>
+  <% end %>
+  <form action='/users/patients/profile' method="post">
+   <span id="add_condition">If you would like to add additional conditions, please do so below:</span>
+    <br />
+    <input class="add" type="button" value="Add Conditions"></input>
+    <div class="hidden_add_button">
+      <%= erb :_add_condition%>
+    </div>
+    <button type="submit" class="btn btn-primary">Add!</button>
+  </form>
+  <br>
+<section>

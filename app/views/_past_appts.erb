@@ -1,0 +1,22 @@
+<section>
+  <h1>Upcoming Appointments</h1>
+  <% Appointment.where(patient_id: current_user.id).each do |appt| %>
+    <% if appt.appt_at > DateTime.now %>
+      <div class="appointment">
+        <span>Therapist: <%= Therapist.find(appt.therapist_id).first_name %>,    Time: <%= appt.appt_at %></span>
+        <span>
+          <form action="/users/patients/profile/remove" method="post" >
+            <input type='hidden' name='appt_id' value=<%= appt.id.to_s %>>
+            <button type="submit" class="btn btn-primary" id="create_patient">Unbook Appointment</button>
+          </form>
+        </span>
+      </div>
+    <% end %>
+  <% end %>
+  <h1>Past Appointments</h1>
+  <% Appointment.where(patient_id: current_user.id).each do |appt| %>
+    <% if appt.appt_at < DateTime.now %>
+      <div class="appointment"><span>Therapist: <%= Therapist.find(appt.therapist_id).first_name %>, Time: <%= appt.appt_at %></span></div>
+    <% end %>
+  <% end %>
+</section>

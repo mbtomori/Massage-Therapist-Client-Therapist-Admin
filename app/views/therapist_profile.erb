@@ -1,11 +1,19 @@
 <div class='container'>
-  <h1>Your Appointments</h1>
+  <h1>Therapist Profile</h1>
+  <h2>Your appointments:</h2>
   <% Appointment.where(therapist_id: current_user.id).all.each do |apt|%>
     <% cur_patient = Patient.find(apt.patient_id)%>
     <p><%= cur_patient.first_name %>
        <%= apt.appt_at %>
     </p>
   <% end %>
-  Today's Appointments
-  <%= erb :_todays_appts %>
+  <% today = DateTime.now %>
+  <% appointments = therapist? ? Appointment.where(therapist_id: current_user.id) : Appointment.all%>
+  <div id='allAppointments'>
+      <% appointments.each do |appt| %>
+        <% if appt.appt_at.year == today.year && appt.appt_at.month == today.month && appt.appt_at.day == today.day %>
+          <%= appt.appt_at %><%= Patient.find(appt.patient_id).first_name %><%= Patient.find(appt.patient_id).last_name %>
+        <% end %>
+      <% end %>
+  </div>
 </div>

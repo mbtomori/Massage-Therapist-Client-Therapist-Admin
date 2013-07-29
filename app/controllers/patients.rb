@@ -39,3 +39,18 @@ post '/users/patients/profile' do
     self.current_user = @patient
     redirect '/users/patients/profile'
 end
+
+post '/users/patients/profile/book' do
+  params.inspect
+  appt = Appointment.find(params[:appointment_id])
+  appt.patient_id = params[:patient_id].gsub("/","")
+  appt.save
+  erb :patient_profile
+end
+
+post '/users/patients/profile/remove' do
+  appt = Appointment.find(params[:appt_id])
+  appt.patient_id = nil
+  appt.save
+  redirect '/users/patients/profile'
+end

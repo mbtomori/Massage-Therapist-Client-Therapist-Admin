@@ -2,11 +2,11 @@
   <h2>Dev Bootcamp's Premium Massage Appointment System</h2>
   <h3>Compete your profile below</h3>
   <form action='/users/patients/new' method="post">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
     <input type="text" name="first_name" placeholder="First Name">
     <input type="text" name="last_name" placeholder="Last Name">
     <input type="text" name="phone" pattern="[^(\([\d]{3}\)|\([\d]{3}\) |[\d]{3}.|[\d]{3}.)[\d]{3}.[\d]{4}|[\d]{10}$]" placeholder="(xxx) xxx-xxxx">
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Password">
   </br>
     <select ="pressure_preference" onchange="selectPreference()" id="pressureList" name="pressure_preference">
       <option value="null">What pressure do you like?</option>

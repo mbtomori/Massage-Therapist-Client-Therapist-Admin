@@ -2,6 +2,15 @@ th {
   text-align: left;
 }
 
+body {
+  background-color: #CCFFCC;
+}
+
+.appointment span{
+  display: inline-block;
+  padding-bottom: 30px;
+}
+
 .not_found {
 	display:block;
 	margin:auto;
