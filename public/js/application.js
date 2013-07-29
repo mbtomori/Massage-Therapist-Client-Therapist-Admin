@@ -17,7 +17,7 @@ $(document).ready(function() {
     var gap = parseInt($('#gap').val(), 10);
     for (var i = 0; i < $('#amount').val(); i++) {
       if (startTime > 0 && (startTime + duration) < 1440) {
-        $('#appointment-slot-list').append('<p>' + activityName + ' starting at ' + formatTimeOutput(startTime) + ' and ending at ' + formatTimeOutput(startTime + duration) + ' <button id="remove-apt">Remove?</button><p>');
+        $('#appointment-slot-list').append('<p>' + activityName + ' starting at ' + formatTimeOutput(startTime) + ' and ending at ' + formatTimeOutput(startTime + duration) + ' <button id="remove-apt">Remove</button><p>');
         startTime = (startTime + (duration + gap));
       }
     }
@@ -30,7 +30,7 @@ $(document).ready(function() {
 
   var aptSlotList = document.getElementById("appointment-slot-list");
   aptSlotList.addEventListener("click", function(e){
-    if (e.target && e.target.nodeName == "BUTTON" && e.target.innerText == "Remove?")
+    if (e.target && e.target.nodeName == "BUTTON" && e.target.innerText == "Remove")
     {
       $(e.target).parent().remove();
     }

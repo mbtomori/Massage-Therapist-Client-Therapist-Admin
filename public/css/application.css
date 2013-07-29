@@ -1,12 +1,39 @@
+.add-button {
+  width: 25px;
+  float: left;
+}
 
+.add-apt-form {
+  display: inline;
+}
 
-th {
-  text-align: left;
+.apt-add-ul {
+  list-style: none;
+}
+
+.apt-list-div {
+  clear: both;
+}
+
+.clear-save-buttons {
+  float: right;
+}
+
+.create-apt-time {
+  width: 190px;
 }
 
 .not_found {
-	display:block;
-	margin:auto;
-	margin-bottom: 1em;
-	width:30%;
+  display:block;
+  margin:auto;
+  margin-bottom: 1em;
+  width:30%;
+}
+
+.num-entry {
+  width: 25px;
+}
+
+th {
+  text-align: left;
 }
