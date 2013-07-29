@@ -18,6 +18,16 @@ get '/users/therapists/profile' do
   erb :therapist_profile
 end
 
-# delete '/users/therapists/profile/:appt_id' do
-#   Appointment.find(params[:appt_id]).destroy
-# end
+get '/therapist/test' do
+  erb :therapist_create_appointments
+end
+
+post '/therapist/test' do
+  if params  
+    params["apt"]["starttime"].each do |apt_time|
+      Appointment.create(appt_at: apt_time.last)
+    end
+  end
+  redirect '/'
+end
+
